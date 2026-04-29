@@ -1,0 +1,486 @@
+/* ================= RESET ================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* ================= LOADER ================= */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #ff7e5f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* hide loader */
+.loader-hidden {
+  display: none;
+}
+
+/* ================= NAVBAR ================= */
+header {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+header input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 200px;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#welcomeUser {
+  font-size: 14px;
+}
+
+.logout-btn {
+  padding: 6px 10px;
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: darkred;
+}
+
+/* ================= HERO ================= */
+/* ================= HERO SLIDER ================= */
+.hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  image-rendering: auto;
+  filter: contrast(1.05) brightness(0.95);
+
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* overlay stays on top */
+.overlay {
+  position: relative;
+  z-index: 2;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.overlay h2 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.overlay p {
+  font-size: 16px;
+}
+
+/* ================= CATEGORY ================= */
+.categories {
+  text-align: center;
+  margin: 20px;
+}
+
+.categories button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  background: #eee;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.categories button:hover {
+  background: #ff7e5f;
+  color: white;
+}
+
+/* ================= SECTION TITLE ================= */
+.section-title {
+  margin: 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* ================= ROW (HORIZONTAL SCROLL) ================= */
+.row {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px 20px;
+}
+
+.row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.row::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 10px;
+}
+
+/* ================= BOOK CARD ================= */
+.book {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px;
+  text-align: center;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* 🔥 IMPORTANT: Horizontal cards */
+.row .book {
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+/* 🔥 IMPORTANT: Favorites grid cards */
+#favoritesContainer .book {
+  width: 100%;
+}
+
+/* ================= IMAGE ================= */
+.book img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.book h3,
+.book h4 {
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+/* ================= BUTTON ================= */
+.book button {
+  margin: 5px 3px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book button:hover {
+  background: #1d4ed8;
+}
+
+/* ================= HEART ================= */
+.heart {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.heart:active {
+  transform: scale(1.4);
+}
+
+/* ================= FAVORITES GRID ================= */
+#favoritesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 20px 20px;
+}
+
+/* ================= TOAST ================= */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+body.dark header,
+body.dark .categories {
+  background: #020617;
+}
+
+body.dark .book {
+  background: #1e293b;
+}
+
+body.dark input {
+  background: #1e293b;
+  color: #fff;
+  border: 1px solid #475569;
+}
+
+/* ================= TRANSITION ================= */
+body,
+header,
+.hero,
+.categories,
+.book,
+button,
+input {
+  transition: 0.4s;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  margin: 5% auto;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ================= SKELETON LOADER ================= */
+.skeleton-card {
+  min-width: 180px;
+  height: 300px;
+  border-radius: 12px;
+  background: #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
+
+/* Dark mode skeleton */
+body.dark .skeleton-card {
+  background: #1e293b;
+}
+
+body.dark .skeleton-card::after {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  header {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  header h1 {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  header input {
+    width: 100%;
+  }
+
+  .user-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* HERO */
+  .hero {
+    height: 200px;
+  }
+
+  .overlay h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .overlay p {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  /* CATEGORY BUTTONS */
+  .categories {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .categories button {
+    flex-shrink: 0;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  /* BOOK ROW (horizontal scroll) */
+  .row {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .row .book {
+    min-width: 140px;
+  }
+
+  /* FAVORITES GRID */
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 10px;
+  }
+
+  /* BOOK CARD */
+  .book {
+    padding: 8px;
+  }
+
+  .book img {
+    height: 180px;
+  }
+
+  .book h3,
+  .book h4 {
+    font-size: 13px;
+    min-height: 35px;
+  }
+
+  .book button {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  /* MODAL */
+  .modal-content {
+    width: 95%;
+    height: 80%;
+  }
+
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ebook Library</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="loader" class="loader-container">
+  <div class="spinner"></div>
+</div>
+
+<header>
+  <h1>📚 My Ebook Library</h1>
+
+  <input type="text" id="search" placeholder="Search books..." onkeyup="searchBooks()">
+
+  <a href="../html/login.html" class="login-btn">Login</a>
+
+  <div class="user-section">
+    <span id="welcomeUser"></span>
+    <button onclick="logoutUser()" class="logout-btn">Logout</button>
+  </div>
+  <button onclick="toggleDarkMode()">🌙</button>
+</header>
+
+<section class="hero">
+  <div class="slider">
+    <img src="../images/hero 2.jpg" class="slide active">
+    <img src="../images/hero 3.jpg" class="slide">
+    <img src="../images/hero 1.jpg" class="slide">
+    <img src="../images/hero 4.jpg" class="slide">
+  </div>
+
+  <div class="overlay">
+    <h2>LOTS OF EBOOKS. 100% FREE</h2>
+    <p>Welcome to your digital library. Explore and read anytime.</p>
+  </div>
+</section>
+
+<section class="categories">
+  <button onclick="filterBooks('All')">All</button>
+  <button onclick="filterBooks('Fiction')">Fiction & Literature</button>
+  <button onclick="filterBooks('SciFi')">Science Fiction</button>
+  <button onclick="filterBooks('Motivational')">Motivational</button>
+  <button onclick="filterBooks('Mystery')">Mystery</button>
+  <button onclick="filterBooks('Supernatural/occult')">Supernatural</button>
+  <button onclick="filterBooks('Religious')">Religious</button>
+</section>
+
+<!-- ✅ MAIN BOOKS -->
+<div id="bookSections"></div>
+
+<!-- ❤️ FAVORITES -->
+<h2 class="section-title">❤️ My Favorites</h2>
+<div id="favoritesContainer" class="books"></div>
+<!-- Link JS -->
+<script src="../js/script.js"></script>
+<div id="toast"></div>
+<div id="pdfModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <iframe id="pdfFrame" src=""></iframe>
+  </div>
+</div>
+
+</body>
+</html>
