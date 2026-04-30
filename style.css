@@ -518,12 +518,7 @@ body.dark .skeleton-card::after {
   color: #38bdf8;
 }
 
-/* Mobile toggle */
-.menu-toggle {
-  display: none;
-  font-size: 22px;
-  cursor: pointer;
-}
+
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
@@ -531,7 +526,7 @@ body.dark .skeleton-card::after {
     position: absolute;
     top: 60px;
     right: 0;
-    background: #ff7e5f;
+    background: #feb47b;
     flex-direction: column;
     width: 200px;
     display: none;
@@ -545,9 +540,5 @@ body.dark .skeleton-card::after {
 
   .nav-links.show {
     display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
   }
 }
